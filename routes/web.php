@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\RegisterController;
 
 // Route::get('/welcome', function () {
 //     return view('welcome');
@@ -14,6 +15,10 @@ use App\Http\Controllers\Auth\LoginController;
 
 // SITE
 Route::get('/', [SiteController::class, 'index'])->name('site.index');
+
+// CADASTRO
+Route::get('/cadastro', [RegisterController::class, 'index'])->name('site.register');
+Route::post('/cadastro', [RegisterController::class, 'store'])->name('auth.register');
 
 // LOGIN
 Route::get('/login', [LoginController::class, "index"])->name('site.login');
